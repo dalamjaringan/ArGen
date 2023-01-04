@@ -4,7 +4,7 @@ import openai
 print("Artikel Generator using OpenAI")
 print()
 
-openai.api_key = "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"
+openai.api_key = "YOUR_OPEN AI_API"
 
 ask=input("Masukkan Topik Artikel : ")
 print()

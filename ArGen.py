@@ -27,4 +27,4 @@ file = open("Artikel.txt",'w')
 file.write(text)
 file.close()
 
-print("Artikel berhasil diketik, silahkan cek file Artikel.txt")
+print("Artikel berhasil digenerate, silahkan cek file Artikel.txt")

@@ -1,30 +1,32 @@
-import os
 import openai
+import pyfiglet
 
-print("Artikel Generator using OpenAI")
+judul = pyfiglet.figlet_format("ArGen")
+print(judul)
+print("*** Artikel Generator using OpenAI ***")
 print()
+apik = input("Masukkan OpenAI_API_Key : ")
 
-#Ubah YOUR_OPENAI_API dengan OpenAI API
-openai.api_key = "YOUR_OPENAI_API"
+openai.api_key = apik
 
 ask=input("Masukkan Topik Artikel : ")
+
 print()
 print("Generate Artikel...")
 print()
+print("Proses ini membutuhkan waktu, mohon ditunggu")
+print()
+
 response = openai.Completion.create(
    model="text-davinci-003",
-   prompt= "Buatkan artikel seo friendly tentang "+ ask,
-   temperature=0.9,
-   max_tokens=2000,
-   top_p=1,
-   frequency_penalty=0,
-   presence_penalty=0.6,
-   stop=[" Human:", " AI:"]
+   prompt= "Tulis artikel yang panjang, sangat detail, dan sangat dioptimalkan untuk SEO tentang "+ ask +". Tulisan harus sangat menarik, dan informatif. Mencakup semua faktor. Tulis minimal 5000 kata.",
+   temperature=1,
+   max_tokens=4000,
  )
-text = response['choices'][0]['text']
+artikel = response['choices'][0]['text']
 
 file = open("Artikel.txt",'w')
-file.write(text)
+file.write(artikel)
 file.close()
 
-print("Artikel berhasil digenerate, silahkan cek file Artikel.txt")
+print("Artikel tentang " + ask + " berhasil diketik, silahkan cek file Artikel.txt")

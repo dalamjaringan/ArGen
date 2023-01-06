@@ -25,8 +25,12 @@ response = openai.Completion.create(
  )
 artikel = response['choices'][0]['text']
 
-file = open("Artikel.txt",'w')
+x = input("Simpan Artikel sebagai : ")
+file = open(x +'.txt','w')
 file.write(artikel)
 file.close()
+time.sleep(5)
+print()
 
-print("Artikel tentang " + ask + " berhasil diketik, silahkan cek file Artikel.txt")
+print("Artikel tentang " + ask + " berhasil diketik, silahkan cek file "+ x +".txt")
+time.sleep(5)
